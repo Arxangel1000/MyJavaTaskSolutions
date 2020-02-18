@@ -1,0 +1,42 @@
+package com.company;
+
+/* Работа с датой
+1. Реализовать метод isDateOdd(String date) так, чтобы он возвращал true, если количество дней с начала года - нечетное число, иначе false
+2. String date передается в формате MAY 1 2013
+Не забудьте учесть первый день года.
+Пример:
+JANUARY 1 2000 = true
+JANUARY 2 2020 = false
+*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Main {
+
+    public static void main(String[] args) throws ParseException {
+        System.out.println(isDateOdd("FEBRUARY 16 2020"));
+    }
+
+    public static boolean isDateOdd(String date) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("MMMMM dd yyyy", Locale.ENGLISH); // введеная дата
+        Date dateD = df.parse(date); // введеная дата
+
+        String startDate; // наало года
+        startDate = "JANUARY 1 " + (dateD.getYear() + 1900);
+        SimpleDateFormat sd = new SimpleDateFormat("MMMMM dd yyyy", Locale.ENGLISH);
+        Date startDateD = sd.parse(startDate);
+        long msTimeDistance = dateD.getTime() - startDateD.getTime();
+        long msDay = 24 * 60 * 60 * 1000;  //сколько миллисекунд в одних сутках
+
+        int dayCount = (int) (msTimeDistance / msDay); //количество целых дней
+        if (dayCount % 2 == 0)
+            return true;
+        else return false;
+    }
+}
+
