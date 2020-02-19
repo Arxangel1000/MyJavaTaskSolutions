@@ -1,0 +1,47 @@
+package com.company;
+
+/* Нужно добавить в программу новую функциональность
+Задача: Программа определяет, какая семья (фамилию) живёт в доме с указанным номером.
+Новая задача: Программа должна работать не с номерами домов, а с городами:
+Пример ввода:
+Москва
+Ивановы
+Киев
+Петровы
+Лондон
+Абрамовичи
+
+Пример вывода:
+Абрамовичи
+Лондон
+*/
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        //list of addresses
+        List<String> addresses = new ArrayList<String>();
+        Map<String, String> map = new HashMap();
+        while (true)
+        {
+            String family = reader.readLine();
+            if (family.isEmpty()) break;
+            String sity = reader.readLine();
+            if(sity.isEmpty()) break;
+            map.put(family, sity);
+        }
+
+        String family = reader.readLine();
+        if(map.containsKey(family));
+        System.out.println(map.get(family));
+    }
+}
