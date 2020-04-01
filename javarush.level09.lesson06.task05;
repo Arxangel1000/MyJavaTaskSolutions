@@ -1,0 +1,39 @@
+package com.company;
+
+/* Исключение при работе с коллекциями Map
+Перехватить исключение (и вывести его на экран), указав его тип, возникающее при выполнении кода:
+HashMap<String, String> map = new HashMap<String, String>(null);
+map.put(null, null);
+map.remove(null);
+*/
+
+import java.beans.ExceptionListener;
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class Main {
+
+ public static void main(String[] args) throws Exception
+        {
+            try {
+
+                HashMap<String, String> map = new HashMap<String, String>(null);
+                map.put(null, null);
+                map.remove(null);
+            }
+            catch(NullPointerException e)
+            {
+                System.out.println(e);
+            }
+
+
+        }
+
+}
+
+
+
+
+
