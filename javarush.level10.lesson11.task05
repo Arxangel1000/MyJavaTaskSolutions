@@ -34,7 +34,7 @@ public class Main {
 
         //ввод строк
         ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
             String s = reader.readLine();
             list.add(s.toLowerCase());
         }
